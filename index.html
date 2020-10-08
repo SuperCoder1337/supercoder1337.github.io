@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMRBX</title>
+    <link rel="icon" type="image/png" href="static/assets/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/css/bootstrap-slider.css" integrity="sha256-+bpMasWDxDlsVpNW3oZlL7L4RacwsP70u2fZt6Rxrmc=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/popup.css">
+    <link rel="stylesheet" href="/static/css/style-extras.css">
+    <link rel="stylesheet" href="/static/css/payments-slider.css">
+    <link rel="stylesheet" href="/static/css/languages.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+</head>
+<body>
+    <div class="popup1">
+        <img class="yakor" src="/static/assets/rbx.png" alt="">
+        <img class="closePayments1" src="/static/assets/close.png" alt="">
+        <div style="display: flex; flex-direction: column;">
+            <div class="popup-content">
+                <input class="payments_placeholder_login" type="text" placeholder="Введите ваш логин">
+                <button class="continuePayments">
+                    <img src="/static/assets/left-arrow.png" alt="">
+                </button>
+            </div>
+            <div class="usernameQueryResult" style="display: none;"></div>
+        </div>
+    </div>
+    <div class='popup'>-*
+        <div class="popup2">
+            <img class="yakor" src="/static/assets/rbx.png" alt="">
+            <img class="closePayments2" src="/static/assets/close.png" alt="">
+            <div class="popup2-content"></div>
+        </div>
+    </div>
+    <section id='top-section'>
+        <header class='header'>
+            <h1><a style="text-decoration: none; color: #fff;" href="/">KMRBX<span>GO</span>.COM</a></h1>
+            <a class="nav-btn initPayments header_button_2" href="#" id="mobilebtn">Платежи</a>
+                <div class="countries" id="countires-mobile">
+                    <img id="en" src="/static/assets/flag-velikobritanii.png" alt="">
+                    <img id="br" src="/static/assets/Flag_of_Brazil.svg" alt="">
+                    <img id="ru" src="/static/assets/Flag_of_Russia.svg" alt="">
+
+                </div>
+            <ul class='header-nav' id='menu'>
+                <a class="nav-btn initPayments header_button_2" href="#" id='computerbutton'>Платежи</a>
+                <li>
+                    <div class="countries" id="countires-comp">
+                        <img id="en" src="/static/assets/flag-velikobritanii.png" alt="">
+                        <img id="br" src="/static/assets/Flag_of_Brazil.svg" alt="">
+                        <img id="ru" src="/static/assets/Flag_of_Russia.svg" alt="">
+
+                    </div>
+                </li>
+                <div style="display: none" class="language-container">
+                    <div class="language-dropdown">
+                        <div class="language-select">
+                            <span class="language-select-span"><strong>language</strong></span>
+                        </div>
+                        <input type="hidden" name="lang">
+                        <ul class="language-dropdown-menu">
+                            
+                                <li class="language-li" id="ru">ru</li>
+                            
+                                <li class="language-li" id="en">en</li>
+                            
+                                <li class="language-li" id="br">br</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </ul>
+        </header>
+        <div class='main-banner'>
+            <h2>KMRBX.COM</h2>
+            <p><a class="header_text_1">Первый в России сервис продажи робаксов начиная с </a><span>2017</span><a class="header_text_2"> года!</a></p>
+            <a href="#buyrbx" class='buys header_button_1' id='mobilebutton'>Купить робаксы</a>
+            <a href="#buyrbx" class='buys header_button_1' id='computerbtn'>Купить робаксы</a>
+        </div>
+        <div class='bottom-image'>
+            <img src="/static/assets/human-money.png" alt="">
+        </div>
+    </section>
+    <section id='how-to-buy'>
+        <div class='how-to-buy'>
+            <h3 class="tutorial_header">Как купить?</h3>
+        </div>
+        <div class='how-to-buy__blocks'>
+            <div class='htb__block' id='first-block'>
+                <div class='htb__block-header'>
+                    <p>1</p>
+                </div>
+                <div class='htb__block-content' id='fb'>
+                    <p class="tutorial_step_1">Введите нужное количество
+                        робуксов в поле «Сколько» 
+                        или  сумму, которую хотите 
+                        потратить в поле «Сумма».
+                    </p>
+                </div>
+            </div>
+            <div class='htb__block' id='second-block'>
+                <div class='htb__block-header'>
+                    <p>2</p>
+                </div>
+                <div class='htb__block-content' id='fb2'>
+                    <p class="tutorial_step_2">Введите ник в игре и номер
+                        телефона или QIWI кошелька, с 
+                        которого оплатите покупку
+                    </p>
+                </div>
+            </div>
+            <div class='htb__block' id='third-block'>
+                <div class='htb__block-header'>
+                    <p>3</p>
+                </div>
+                <div class='htb__block-content' id='fb3'>
+                    <p class="tutorial_step_3">Вступите в группу.
+                        Это нужно, чтобы робаксы
+                        автоматически отправились 
+                        на ваш аккаунт в игре
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id='robux-changes'>
+        <div class='change-form' id='buyrbx'>
+            <div class='change-form__header'>
+                <h2>KMRBX.COM</h2>
+                <p id="socket-robux"><span id="balance">314766</span> <a class="form_subtitle">робуксов в наличии</a></p>
+                <p id="socket-notify" style="display: none;"></p>
+
+            </div>
+
+            <div class='nickname-input'>
+                <img src="/static/assets/user.png" alt="">
+                <input type="text" placeholder="Username" required>
+            </div>
+            <div class='convert-input'>
+                <div class='balance-input'>
+                    <img src="/static/assets/roblux.png" alt="">
+                    <input id="balance-input-tag" style="text-align: right;" type="number" placeholder="R$" required min="1">
+                </div>
+                <div class="payment-image">
+                    <img id="payment-image-tag" src="/static/assets/payment_systems/qiwi.png">
+                    <p id="payment_fee">8.0%</p>
+                </div>
+                <div class='money-input'>
+                    <input id="money-input-tag" type="number" step="0.01" placeholder="RUB" required min="1">
+                    <img src="/static/assets/rubles.png">
+                </div>
+            </div>
+            <div class="payments-choose">
+                <input class="payments-range ru-payments-range" id="payments-range" type="text" data-slider-tooltip="hide" data-slider-min="0" data-slider-max="21" data-slider-step="0.1" data-slider-value="0"/>
+                <input class="payments-range br-payments-range" id="payments-range" type="text" data-slider-tooltip="hide" data-slider-min="0" data-slider-max="7" data-slider-step="0.1" data-slider-value="0"/>
+            </div>
+            <p class='help-message'><a class="form_description_1">Вступите в </a><a class="payments-group-link" target="_blank" href="https://www.roblox.com/groups/7858258"><b class="form_description_2">группу</b></a><a class="form_description_3"> в игре для того, чтобы робаксы
+                автоматически отправились на ваш аккаунт.</a>
+            </p>
+            <button class='confirm-button form_submit_button'>Подтвердить</button>
+
+        </div>
+    </section>
+    <section id='answer-on-question'>
+        <div class='answer-on-question__header'>
+            <h2 class="help_header">Ответы на вопросы</h2>
+        </div>
+        <div class='question-answer'>
+            <h2 class="help_question_1">Откуда у вас робаксы? Это легально?</h2>
+            <p class="help_answer_1">- Мы используем предусмотренный разработчиками способ: заработок на плейсах. Поэтому покупая у нас робаксы, вашему аккаунт ничего не угрожает!</p>
+            <h2 class="help_question_2">Как быстро приходят робаксы? Что, если я не получил их? </h2>
+            <p><a class="help_answer_2_1"> - До 5 минут. Автоматически. В случае ошибки вы можете перевыдать их с помощью </a><a href="https://vk.com/@buyrobux-ne-prishli-robaksy-ne-problema"><a class="help_answer_2_2">инструкции.</a></a></p>
+            <h2 class="help_question_3">Какие способы оплаты вы принимаете?</h2>
+            <p class="help_answer_3">- QIWI, YandexMoney, Банковский карты и другие, доступные в сервисе GameMoney.</p>
+        </div>
+    </section>
+    <footer id='footer'>
+        <div class='footer-links-and-logo'>
+            <div class='footer-links'>
+                <ul class='footer-links__list'>
+                    <li><a target="_blank" href="https://vk.com/topic-153515907_38181638" class="footer_links_1">Отзывы покупателей</a></li>
+                    <li><a target="_blank" href="https://discord.gg/kVXvF6k" class="footer_links_2">Группа сервиса вконтакте</a></li>
+                    <li><a target="_blank" href="agreement" class="footer_links_3">Пользовательское соглашение</a></li>
+                    <li><a target="_blank" href="contacts" class="footer_links_4">Контакты</a></li>
+                </ul>
+            </div>
+            <div class='footer-logo'>
+                <h2>RBXGO.COM</h2>
+                <p class="footer_text_1">Первый сервис в России по продаже робаксов</p>
+            </div>
+        </div>
+        <div class='footer-copyright'>
+            <img src="/static/assets/visa1.png" alt="">
+            <img src="/static/assets/mastercard1.png" alt=""><br><br><br>
+            <h3><a class="users_online_text"></a> <span id="socket-online">0</span></h3>
+            <h3>( C ) <a class="footer_text_2">ВСЕ ПРАВА ЗАЩИЩЕНЫ</a> 2020. KMRBX.COM</h3>
+        </div>
+    </footer>
+    <script>
+        let paymentServices_gm = null,
+            paymentServices_user = null,
+            ruPaymentServices_gm = {'qiwi': 0.92, 'boleto': 0.925, 'yandexmoney': 0.92, 'tele2': 0.95, 'beeline': 0.95, 'mts': 0.95, 'megaphone': 0.95, 'alfabank': 0.95, 'sberbank': 0.95, 'promsviaz': 0.95, 'skinpay': 0.9, 'card': 0.96, 'advcash': 0.92, 'kassa24': 0.92, 'cash': 0.935, 'alipay': 0.925, 'atf24': 0.92, 'bitcoin': 0.97, 'cup': 0.925, 'ecopayz': 0.93, 'jeton': 0.925, 'jeton_voucher': 0.9},
+            ruPaymentServices_user = {'qiwi': 1, 'boleto': 1, 'yandexmoney': 1, 'tele2': 0.797, 'beeline': 0.87, 'mts': 0.892, 'megaphone': 0.85, 'alfabank': 1, 'sberbank': 1, 'promsviaz': 1, 'skinpay': 1, 'card': 1, 'advcash': 1, 'kassa24': 1, 'cash': 1, 'alipay': 1, 'atf24': 1, 'bitcoin': 1, 'cup': 1, 'ecopayz': 1, 'jeton': 1, 'jeton_voucher': 1},
+            brPaymentServices_gm = {'boleto': 0.925, 'card': 0.96, 'alipay': 0.925, 'bitcoin': 0.97, 'cup': 0.925, 'ecopayz': 0.93, 'jeton': 0.925, 'jeton_voucher': 0.9},
+            brPaymentServices_user = {'boleto': 1, 'card': 1, 'alipay': 1, 'bitcoin': 1, 'cup': 1, 'ecopayz': 1, 'jeton': 1, 'jeton_voucher': 1},
+            defaultPaymentKey = "qiwi",
+            brDefaultPaymentKey = "boleto",
+            siteRate = 0.54,
+            brSiteRate = 0.04,
+            isBrasil = null,
+            languages = {'users_online_text': {'ru': 'Текущий онлайн:', 'en': 'Online:', 'br': 'Atual online:'}, 'payments_placeholder_login': {'ru': 'Введите ваш логин', 'en': 'Type in your login', 'br': 'Digite seu login'}, 'payments_reapeat_btn_text': {'ru': 'Повторить', 'en': 'Repeat', 'br': 'Repetir'}, 'payments_empty': {'ru': 'Нет доступных платежей', 'en': 'No payments available', 'br': 'Não há pagamentos disponíveis'}, 'payments_repeat_notify_1': {'ru': 'Успешная перевыплата по номеру ', 'en': 'Successful payout number', 'br': 'Pagamento realizado com sucesso pelo número'}, 'payments_repeat_notify_2': {'ru': 'Что-то пошло не так:', 'en': 'Something went wrong', 'br': 'Ocorreu algo de errado'}, 'payments_status_1': {'ru': 'Выдан', 'en': 'Issued', 'br': 'Sucesso'}, 'payments_status_2': {'ru': 'Ошибка', 'en': 'Error', 'br': 'Erro'}, 'payments_status_3': {'ru': 'Ожидание', 'en': 'Waiting', 'br': 'Espera'}, 'payments_repeat_error_1': {'ru': ' не состоит в группе', 'en': ' is not a group member', 'br': ' não é membro do grupo'}, 'payments_repeat_error_2': {'ru': ' не найден в базе Roblox', 'en': ' not found in rolox database', 'br': ' não encontrado na base Roblox'}, 'payments_repeat_error_3': {'ru': 'Статус уже изменился', 'en': 'Status has already changed', 'br': 'O status já foi alterado'}, 'payments_repeat_error_4': {'ru': 'Платёж не найден: ', 'en': 'Payment not found', 'br': 'Pagamento não encontrado'}, 'header_button_1': {'ru': 'КУПИТЬ РОБАКСЫ', 'en': 'BUY FUNDS', 'br': 'COMPRAR FUNDS'}, 'header_button_2': {'ru': 'ПЛАТЕЖИ', 'en': 'ORDERS', 'br': 'PAGAMENTOS'}, 'header_text_1': {'ru': 'Первый в России сервис продажи робаксов начиная с ', 'en': 'The Best Website for the buy of funds since ', 'br': 'O melhor serviço para a compra de funds, a partir de '}, 'header_text_2': {'ru': ' года!', 'en': ' !', 'br': ' !'}, 'tutorial_header': {'ru': 'Как купить?', 'en': 'How to buy?', 'br': 'Como comprar?'}, 'tutorial_step_1': {'ru': 'Введите нужное количество робуксов в поле «Сколько» или сумму, которую хотите потратить в поле «Сумма».', 'en': 'Enter the amount of funds you need in the «R$» field or the amount you want to spend in the «Amount» field.', 'br': 'Insira o número necessário de funds no campo «Quantos» ou o montante que pretende gastar no campo «Montante».'}, 'tutorial_step_2': {'ru': 'Введите ник в игре, выберите удобный способ оплаты', 'en': 'Enter your username from the game, choose a convenient payment method', 'br': ' Entre com um nick no jogo, escolha um método de pagamento conveniente.'}, 'tutorial_step_3': {'ru': 'Вступите в группу. Это нужно, чтобы робаксы автоматически отправились на ваш аккаунт в игре', 'en': 'Join the group. This is necessary so that funds are credited automatically to your account in the game', 'br': 'Adira ao grupo. É necessário para creditar funds automaticamente na sua conta do jogo.'}, 'form_description_1': {'ru': 'Вступите в ', 'en': 'Join the ', 'br': 'Junte-se ao '}, 'form_description_2': {'ru': 'группу', 'en': 'group', 'br': 'grupo'}, 'form_description_3': {'ru': ' в игре для того, чтобы робаксы автоматически отправились на ваш аккаунт.', 'en': ' so that funds are credited automatically to your account.', 'br': " do jogo para que funds venham automaticamente para sua conta. <br><a style='color: #b30000;'>As transações do boleto são processadas manualmente pelo provedor. Geralmente é atualizado em 1-5 dias. Verifique o status do pagamento na seção PAGAMENTOS. Participe da comunidade atual e envie sua compra.</a>"}, 'form_submit_button': {'ru': 'ПОДТВЕРДИТЬ', 'en': 'CONFIRM', 'br': 'CONFIRMAR'}, 'form_subtitle': {'ru': 'РОБАКСОВ В НАЛИЧИИ', 'en': 'FUNDS IN STOCK', 'br': 'FUNDS À DISPOSIÇÃO'}, 'form_submit_error_1': {'ru': 'Нельзя заказать меньше чем 4 робаксов', 'en': 'Unable to order less than 20', 'br': 'Não se pode encomendar menos de 20'}, 'form_submit_error_2_1': {'ru': 'Нельзя заказать больше трети баланса', 'en': 'Unable to order over a third of the site’s balance', 'br': 'Não se pode encomendar mais de um terço do saldo dos'}, 'form_submit_error_2_2': {'ru': 'робаксов', 'en': 'of funds', 'br': 'funds'}, 'form_submit_error_3': {'ru': 'Неверное имя пользователя', 'en': 'Invalid username', 'br': 'Nome de utilizador errado'}, 'form_submit_error_4_1': {'ru': 'Для перевода нужно присоединится к', 'en': 'In order to get funds you need join in', 'br': 'Para fazer transferência você precisa se juntar ao'}, 'form_submit_error_4_2': {'ru': 'нашей группе', 'en': 'our group', 'br': 'nosso grupo'}, 'help_header': {'ru': 'Ответы на вопросы', 'en': 'Answers on questions', 'br': 'Respostas às perguntas'}, 'help_question_1': {'ru': 'Откуда у вас робаксы? Это легально?', 'en': 'Where do you get funds from? Is it legal?', 'br': 'De onde são os seus funds? É legal?'}, 'help_answer_1': {'ru': '- Мы используем предусмотренный разработчиками способ: заработок на плейсах. Поэтому покупая у нас робаксы, вашему аккаунту ничего не угрожает!', 'en': '- We use the method provided by the developers: This is earning by places. Therefore, after the purchase, your account is not in danger', 'br': '- Utilizamos o método fornecido pelos promotores: ganhos em places. Por isso, quando você compra nossos funds, a sua conta não estará em perigo!'}, 'help_question_2': {'ru': 'Как быстро приходят робаксы? Что, если я не получил их?', 'en': 'How fast are funds sent? What if I didn’t receive this?', 'br': 'Quanto tempo leva para receber os funds na conta? E se eu não os tiver recebido?'}, 'help_answer_2_1': {'ru': '- До 5 минут. Автоматически. В случае ошибки вы можете перевыдать их с помощью ', 'en': '- No more than 5 minutes. This is automatic. In case of an error, you can re-give them with our ', 'br': '- Em até 5 minutos. Automaticamente. Em caso de erro, é possível reemiti-los segundo o '}, 'help_answer_2_2': {'ru': "<a target='_blank' href='https://vk.com/@buyrobux-ne-prishli-robaksy-ne-problema'>инструкции</a>.", 'en': "<a target='_blank' href='https://vk.com/@buyrobux-ne-prishli-robaksy-ne-problema'>instruction</a>.", 'br': "<a target='_blank' href='https://drive.google.com/file/d/1kdjfR1o9V33QgHSV1C029L-IyO2-l94C/view'>manual</a>."}, 'help_question_3': {'ru': 'Какие способы оплаты вы принимаете?', 'en': 'What payment methods are available on the site?', 'br': 'Que métodos de pagamento você aceita?'}, 'help_answer_3': {'ru': '- QIWI, YandexMoney, Банковский карты и другие, доступные в сервисе GameMoney.', 'en': '- Visa, MasterCard and many other ways, provided by GameMoney.', 'br': "- Visa, Mastercard, Boleto e outros disponíveis no GameMoney.<br> <a style='color: #b30000;'>As transações do boleto são processadas manualmente pelo provedor. Geralmente é atualizado em 1-5 dias. Verifique o status do pagamento na seção PAGAMENTOS. Participe da comunidade atual e envie sua compra.</a>"}, 'footer_links_1': {'ru': 'ОТЗЫВЫ ПОКУПАТЕЛЕЙ', 'en': 'CUSTOME REVIEWS', 'br': 'FEEDBACK DOS COMPRADORES'}, 'footer_links_2': {'ru': 'НАШ КАНАЛ В DISCORD', 'en': 'JOIN OUR DISCORD', 'br': 'CANAL DISCORD'}, 'footer_links_3': {'ru': 'ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ', 'en': 'TERMS OF USE', 'br': 'CONTRATO DE UTILIZADOR'}, 'footer_links_4': {'ru': 'КОНТАКТЫ', 'en': 'CONTACTS', 'br': 'CONTATOS'}, 'footer_text_1': {'ru': 'ПЕРВЫЙ СЕРВИС В РОССИИ ПО ПРОДАЖЕ РОБАКСОВ', 'en': 'THE BEST WEBSITE FOR THE BUY OF FUNDS!', 'br': 'O MELHOR SERVIÇO PARA A COMPRA DE FUNDS!'}, 'footer_text_2': {'ru': 'ВСЕ ПРАВА ЗАЩИЩЕНЫ', 'en': 'ALL RIGHTS RESERVED', 'br': 'TODOS OS DIREITOS RESERVADOS'}},
+            defaultLang = "ru",
+            devState = false;
+    </script>
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/bootstrap-slider.js" integrity="sha256-59/apVFrosMLFX2dHZLGvb3nPpu7e0Yx1rsDr1dTRrk=" crossorigin="anonymous"></script>
+    <script src='/static/js/languages.js'></script>
+    <script src='/static/js/main.js'></script>
+    <script src='/static/js/payments.js'></script>
+    <script src='/static/js/sockets.js'></script>
+    <script src='/static/js/payments-slider.js'></script>
+<script type="text/javascript" src="https://vk.com/js/api/openapi.js?167"></script>
+
+<!-- VK Widget -->
+<div id="vk_community_messages"></div>
+<script type="text/javascript">
+VK.Widgets.CommunityMessages("vk_community_messages", 153515907, {disableNewMessagesSound: "1",tooltipButtonText: "Есть вопрос?"});
+</script>
+</body>
+</html>

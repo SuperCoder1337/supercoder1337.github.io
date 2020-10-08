@@ -1,0 +1,98 @@
+span.language-msg,
+span.language-choose {
+  outline: 0;
+  font-family: sans-serif;
+  color: #555;
+  padding: 5px 0 10px;
+  display: inherit
+}
+.language-container {
+  outline: 0;
+  font-family: sans-serif;
+  height: 40px;
+  text-transform: uppercase;
+  text-align: center
+}
+
+/*Styling Selectbox*/
+.language-dropdown {
+  outline: 0;
+  font-family: sans-serif;
+  width: 150px;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgb(204, 204, 204);
+  transition: all .5s ease;
+  position: relative;
+  font-size: 15px;
+  color: #474747;
+  height: 100%;
+  text-align: center;
+  margin-left: 25px
+}
+.language-dropdown .language-select {
+    cursor: pointer;
+    display: block;
+    height: 20px;
+    padding: 10px
+}
+.language-dropdown .language-select > i {
+    font-size: 13px;
+    color: #888;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    float: right;
+    line-height: 20px
+}
+.language-dropdown:hover {
+    box-shadow: 0 0 4px rgb(204, 204, 204)
+}
+.language-dropdown:active {
+    background-color: #f8f8f8
+}
+.language-dropdown.language-active:hover,
+.language-dropdown.language-active {
+    box-shadow: 0 0 4px rgb(204, 204, 204);
+    border-radius: 5px 5px 0 0;
+    background-color: #f8f8f8
+}
+.language-dropdown.language-active .language-select > i {
+    transform: rotate(-90deg)
+}
+.language-dropdown .language-dropdown-menu {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    left: 0;
+    margin-top: 1px;
+    box-shadow: 0 1px 2px rgb(204, 204, 204);
+    border-radius: 0 1px 5px 5px;
+    overflow: hidden;
+    display: none;
+    max-height: 144px;
+    overflow-y: auto;
+    z-index: 9
+}
+.language-dropdown .language-dropdown-menu li {
+    padding: 10px;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    margin-left: 0;
+}
+.language-dropdown .language-dropdown-menu {
+    padding: 0;
+    list-style: none
+}
+.language-dropdown .language-dropdown-menu li:hover {
+    background-color: #f2f2f2
+}
+.language-dropdown .language-dropdown-menu li:active {
+    background-color: #e2e2e2
+}
+.language-select-span {
+    color: black !important;
+}
+.language-li {
+  margin-left: 0;
+}
